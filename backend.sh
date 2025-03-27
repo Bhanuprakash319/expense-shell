@@ -70,4 +70,5 @@ validate $? "enabling the backend file"
 systemctl start backend &>> $logfile
 validate $? "starting the backend file"
 
-
+dnf install mysql -y &>> $logfile
+validate $? "mysql client installation"
