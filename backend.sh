@@ -77,4 +77,4 @@ mysql -h database.bhanup.site -uroot -pExpenseApp@1 < /app/schema/backend.sql &>
 validate $? "schema loading"
 
 systemctl restart backend &>> $logfile
-validate $? "restarting backend serive"
+validate $? "restarting backend serive" 
