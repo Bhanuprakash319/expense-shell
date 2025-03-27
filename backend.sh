@@ -35,18 +35,14 @@ validate $? "enabling nodejs version"
 dnf install nodejs -y &>> $logfile
 validate $? "installing nodejs"
 
-#id expense &>> $logfile
-#if [ $? -eq 0 ]
-#then 
-#     echo -e "$g User already exists $n"
-#else
-#    useradd expense
-#    validate $? "adding user expense"
-#fi
-
-useradd expense
-validate $? "adding user expense"
-
+id expense &>> $logfile
+if [ $? -eq 0 ]
+then 
+     echo -e "$g User already exists $n"
+else
+     useradd expense
+     validate $? "adding user expense"
+fi
 
 mkdir -p /app 
 validate $? "creating app directory"
