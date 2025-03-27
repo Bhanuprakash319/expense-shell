@@ -32,5 +32,5 @@ validate $? "disabling nodejs module"
 dnf module enable nodejs:20 -y &>> logfile
 validate $? "enabling nodejs version"
 
-dnf install nodejss -y &>> $logfile
+dnf install nodejs -y &>> $logfile
 validate $? "installing nodejs"
