@@ -57,3 +57,5 @@ validate $? "unzipping the code"
 
 npm install &>> $logfile
 validate $? "Dependencies installed"
+
+
