@@ -34,3 +34,6 @@ validate $? "enabling nodejs version"
 
 dnf install nodejs -y &>> $logfile
 validate $? "installing nodejs"
+
+useradd expense &>> $logfile
+validate $? "adding user expense"
