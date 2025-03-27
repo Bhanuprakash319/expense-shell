@@ -18,13 +18,19 @@ fi
 validate(){
     if [ $1 -eq 0 ]
     then 
-         echo -e "$g $2 is successfull$n"
+         echo -e "$2 is $g successfull$n"
     else
-         echo -e "$r $2 is failure$n"
+         echo -e "$2 is $r failure$n"
          exit 1
     fi
 }
 
 dnf install mysql-server -y &>> $logfile
 validate $? "installing mysql-server"
+
+systemctl enable mysqld &>> $logfile
+validate $? "enabling mysql-server"
+
+systemctl start mysqld &>> $logfile
+validate $? "starting mysql-server"
 
