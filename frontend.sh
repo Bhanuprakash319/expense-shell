@@ -29,9 +29,9 @@ validate(){
 dnf install nginx -y &>> $logfile
 validate $? "installing nginx"
 
-dnf enable nginx  &>> $logfile
+systemctl enable nginx  &>> $logfile
 validate $? "enabling nginx"
 
-dnf start nginx &>> $logfile
+systemctl start nginx &>> $logfile
 validate $? "starting nginx"
 
