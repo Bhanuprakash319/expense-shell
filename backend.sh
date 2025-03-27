@@ -26,5 +26,5 @@ validate(){
     fi
 }
 
-dnf module disable nodejs -y &>> $logfile
+dnf module disable nodejss -y &>> $logfile
 validate $? "disabling nodejs"
