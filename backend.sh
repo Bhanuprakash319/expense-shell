@@ -58,4 +58,16 @@ validate $? "unzipping the code"
 npm install &>> $logfile
 validate $? "Dependencies installed"
 
+cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service &>> $logfile
+validate $? "copying the backend service"
+
+systemctl daemon-reload &>> $logfile
+validate $? "reloading the backend file"
+
+systemctl enable backend &>> $logfile
+validate $? "enabling the backend file"
+
+systemctl start backend &>> $logfile
+validate $? "starting the backend file"
+
 
