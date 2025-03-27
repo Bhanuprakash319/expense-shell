@@ -35,5 +35,21 @@ validate $? "enabling nodejs version"
 dnf install nodejs -y &>> $logfile
 validate $? "installing nodejs"
 
-useradd expense &>> $logfile
-validate $? "adding user expense"
+id expense &>> $logfile
+if [ $? -eq 0 ]
+then 
+     echo -e "$g User already exists $n"
+else
+     useradd expense
+     validate $? "adding user expense"
+fi
+
+mkdir -p /app 
+validate $? "creating app directory"
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+validate $? "Dowloading the code"
+
+cd /app
+unzip /tmp/backend.zip
+validate $? "unzipping the code"
