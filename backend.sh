@@ -54,3 +54,6 @@ cd /app
 rm -rf /app/*
 unzip /tmp/backend.zip &>> $logfile
 validate $? "unzipping the code"
+
+npm install &>> $logfile
+validate $? "Dependencies installed"
