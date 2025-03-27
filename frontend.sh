@@ -35,3 +35,14 @@ validate $? "enabling nginx"
 systemctl start nginx &>> $logfile
 validate $? "starting nginx"
 
+rm -rf /usr/share/nginx/html/* &>> $logfile
+validate $? "removing default content"
+
+curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>> $logfile
+validate $? "downloading the code"
+
+cd /usr/share/nginx/html
+
+unzip /tmp/frontend.zip &>> $logfile
+validate $? "unzipping the file"
+
