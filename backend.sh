@@ -73,7 +73,7 @@ validate $? "starting the backend file"
 dnf install mysql -y &>> $logfile
 validate $? "mysql client installation"
 
-mysql -h database.bhanup.site -uroot -pExpenseApp@1 < /app/schema/backend.sql &>> $logfile
+mysql -h 44.202.107.105 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>> $logfile
 validate $? "schema loading"
 
 systemctl restart backend &>> $logfile
